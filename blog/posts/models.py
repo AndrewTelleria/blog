@@ -16,5 +16,9 @@ class Post(models.Model):
     date_mod = models.DateField(blank=True, null=True)
     authors = models.ManyToManyField(Author)
 
+    def publish(self):
+        self.date_pub = timezone.now()
+        self.save()
+
     def __str__(self):
         return self.title
