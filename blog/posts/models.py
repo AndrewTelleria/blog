@@ -1,20 +1,17 @@
 from django.db import models
 from django.utils import timezone
+from django.conf import settings
 
-class Author(models.Model):
-    name = models.CharField(max_length=200)
-    email = models.EmailField()
-
-    def __str__(self):
-        return self.name
 
 class Post(models.Model):
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=0)
     title = models.CharField(max_length=255)
+    headline = models.CharField(max_length=255, blank=True)
     body = models.TextField()
     date_created = models.DateField(default=timezone.now)
-    date_pub = models.DateField(blank=True, null=True)
     date_mod = models.DateField(blank=True, null=True)
-    authors = models.ManyToManyField(Author)
+    date_pub = models.DateField(blank=True, null=True)
+
 
     def publish(self):
         self.date_pub = timezone.now()
