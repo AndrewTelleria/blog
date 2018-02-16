@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Author
 from django.utils import timezone
+from .forms import PostForm, AuthorForm
 
 def post_list(request):
     posts = Post.objects.filter(date_pub__lte=timezone.now()).order_by('date_pub')
