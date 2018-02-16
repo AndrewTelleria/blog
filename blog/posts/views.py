@@ -9,3 +9,12 @@ def post_list(request):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'posts/post_detail.html', {'post': post})
+
+def post_new(request):
+    p_form = PostForm()
+    a_form = AuthorForm()
+    return render(request, 'posts/post_edit.html',
+            {'p_form': p_form,
+             'a_form': a_form,
+             }
+        )
