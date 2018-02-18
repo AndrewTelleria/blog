@@ -14,7 +14,9 @@
   </head>
   <body>
     <div class="page-header">
-      <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+      {% if user.is_authenticated %}
+        <h2><a href="{% url 'post_new' %}" class="top-menu">New Post</a></h2>
+      {% endif %}
       <h1><a href="/">blog</a></h1>
     </div>
 
