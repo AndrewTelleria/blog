@@ -10,9 +10,9 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     headline = models.CharField(max_length=255, blank=True)
     body = models.TextField()
-    date_created = models.DateField(default=timezone.now)
-    date_mod = models.DateField(blank=True, null=True)
-    date_pub = models.DateField(blank=True, null=True)
+    date_created = models.DateTimeField(default=timezone.now)
+    date_mod = models.DateTimeField(blank=True, null=True)
+    date_pub = models.DateTimeField(blank=True, null=True)
 
 
     def publish(self):
