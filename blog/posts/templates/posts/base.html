@@ -16,7 +16,9 @@
     <div class="page-header">
       {% if user.is_authenticated %}
         <h2><a href="{% url 'post_new' %}" class="top-menu">New Post</a></h2>
+        <h2><a href="{% url 'post_draft_list' %}" class="top-menu">Drafts</a></h2>
       {% endif %}
+
       <h1><a href="/">blog</a></h1>
     </div>
 

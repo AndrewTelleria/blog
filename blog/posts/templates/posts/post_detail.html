@@ -8,12 +8,29 @@
       </div>
     {% endif %}
     <h1>{{ post.title }}</h1>
-    <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span>Edit</a>
-    {% if post.authors %}
+    
+    {% if user.is_authenticated %}
+      <div class="save">
+        <a class="btn btn-warning" href="{% url 'post_edit' pk=post.pk %}">Edit</a>
+        <a class="btn btn-danger" href="{% url 'post_remove' pk=post.pk %}">Delete</a>
+      </div>
+    {% endif %}
+    {% if post.date_pub %}
+      <p class="date">{{ post.date_pub }}</p>
+    {% else %}
+      {% if user.is_authenticated %}
+      <div class="save">
+      <a class="btn btn-success" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+      </div>
+      {% endif %}
+    {% endif %}
+    
+    <!-- {% if post.authors %}
       <div class="author">
         {{ post.author }}
       </div>
-    {% endif %}
+    {% endif %} -->
     <p>{{ post.body|linebreaksbr }}</p>
+
   </div>
 {% endblock %}

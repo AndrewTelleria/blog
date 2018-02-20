@@ -8,11 +8,10 @@ from django.conf import settings
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=0)
     title = models.CharField(max_length=255)
-    headline = models.CharField(max_length=255, blank=True)
     body = models.TextField()
-    date_created = models.DateField(default=timezone.now)
-    date_mod = models.DateField(blank=True, null=True)
-    date_pub = models.DateField(blank=True, null=True)
+    date_created = models.DateTimeField(default=timezone.now)
+    date_mod = models.DateTimeField(auto_now=True, blank=True, null=True)
+    date_pub = models.DateTimeField(blank=True, null=True)
 
 
     def publish(self):
