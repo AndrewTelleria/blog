@@ -11,6 +11,7 @@
       <a class="btn btn-success" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
     {% endif %}
     <a class="btn btn-warning" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span>Edit</a>
+    <a class="btn btn-danger" href="{% url 'post_remove' pk=post.pk  %}">Remove</a>
     {% if post.authors %}
       <div class="author">
         {{ post.author }}
