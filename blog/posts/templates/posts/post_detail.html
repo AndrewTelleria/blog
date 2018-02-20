@@ -3,19 +3,26 @@
 {% block content %}
   <div class="post">
     <h1>{{ post.title }}</h1>
+    <div class="date">
+      {{ post.date_created|date:'m-d-Y' }}
+    </div>
+    {% if post.author %}
+      <div class="author">
+        {{ post.author.username }}
+      </div>
+    {% endif %}
     {% if post.date_pub %}
       <div class="date">
         {{ post.date_pub }}
       </div>
     {% else %}
-      <a class="btn btn-success" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+      {% if user.is_authenticated %}
+        <a class="btn btn-success" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+      {% endif %}
     {% endif %}
-    <a class="btn btn-warning" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span>Edit</a>
-    <a class="btn btn-danger" href="{% url 'post_remove' pk=post.pk  %}">Remove</a>
-    {% if post.authors %}
-      <div class="author">
-        {{ post.author }}
-      </div>
+    {% if user.is_authenticated %}
+      <a class="btn btn-warning" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span>Edit</a>
+      <a class="btn btn-danger" href="{% url 'post_remove' pk=post.pk  %}">Remove</a>
     {% endif %}
     <p>{{ post.body|linebreaksbr }}</p>
   </div>

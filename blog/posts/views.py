@@ -50,7 +50,9 @@ def post_new(request):
 
 
 def post_publish(request, pk):
+    print(request)
     post = get_object_or_404(Post, pk=pk)
+    print(post.date_created)
     post.publish()
     return redirect('post_detail', pk=pk)
 
