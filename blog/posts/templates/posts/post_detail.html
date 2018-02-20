@@ -19,4 +19,15 @@
     {% endif %}
     <p>{{ post.body|linebreaksbr }}</p>
   </div>
+  <hr>
+  {% for comment in post.comments.all %}
+    <div class="date">
+      <div class="date">{{ comment.date_created }}</div>
+      <strong>{{ comment.author }}</strong>
+      <p>{{ comment.body|linebreaks }}</p>
+      <hr>
+    </div>
+  {% empty %}
+    <p>No comments, yet</p>
+  {% endfor %}
 {% endblock %}

@@ -37,4 +37,4 @@ class Comment(models.Model):
         self.save()
 
     def __str__(self):
-        return self.body
+        return self.author
