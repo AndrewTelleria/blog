@@ -31,7 +31,7 @@ h1, h2, h3, h4 {
   float: right;
 }
 
-.post-form textarea, .post-dorm input {
+.post-form textarea, .post-form input {
   width: 100%;
 }
 
