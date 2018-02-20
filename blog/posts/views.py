@@ -37,7 +37,7 @@ def post_edit(request, pk):
 
 
 def post_list(request):
-    posts = Post.objects.filter(date_pub__lte=timezone.now()).order_by('date_pub')
+    posts = Post.objects.filter(date_pub__lte=timezone.now()).order_by('-date_pub')
     return render(request, 'posts/post_list.html', {'posts': posts})
 
 
@@ -69,6 +69,3 @@ def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
     return redirect('post_list')
-
-
-
