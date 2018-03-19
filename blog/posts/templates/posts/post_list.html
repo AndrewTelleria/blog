@@ -1,14 +1,42 @@
 {% extends 'posts/base.html' %}
 {% block content %}
+<div class="header"><h1>Blog</h1></div>
+  <div class="rightcolumn">
+    <div class="card">
+      <h3>Popular Posts</h3>
+      <div class="fakeimg" style="height: 1px;"></div>
+      <div class="fakeimg"></div>
+      <div class="fakeimg"></div>
+    </div>
+    <div class="card">
+      <h3>Follow Me</h3>
+      <p>Some text..</p>
+    </div>
+  </div>
   {% for post in posts %}
-    <div class="post">
-      <div class="date">
+    <div class="leftcolumn">
+      <div class="card">
         <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
         <p>author: {{ post.author.username }}</p>
         <h4>published: {{ post.date_pub }}</h4>
-        <p>{{ post.body|linebreaksbr }}</p>
+        <div class="fakeimg" style="height: 200px;"></div>
+        <p>{{ post.body|linebreaksbr|truncatechars:800 }}</p>
         <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
       </div>
     </div>
   {% endfor %}
+
+  <!-- <div class="rightcolumn1">
+    <div class="card">
+      <h3>Popular Posts</h3>
+      <div class="fakeimg" style="height: 1px;"></div>
+      <div class="fakeimg" style="height: 1px;"></div>
+      <div class="fakeimg" style="height: 1px;"></div>
+    </div>
+    <div class="card">
+      <h3>Follow Me</h3>
+      <p>Some text..</p>
+    </div>
+  </div> -->
+
 {% endblock %}

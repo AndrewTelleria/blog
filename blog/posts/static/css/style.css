@@ -1,55 +1,196 @@
-h2 a {
-    color: #FCA205;
-    font-family: 'Lobster';
-}
 
-.page-header {
-  background-color: #ff9400;
+body {
+  font-family: sans-serif;
+  padding: 0 20px 20px 0;
+  background: #f1f1f1;
+  margin-left: 0;
   margin-top: 0;
-  padding: 20px 20px 20px 40px;
 }
 
-.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-  color: #ffffff;
-  font-size: 45px;
+/* edit posts */
+.remove {
+  background-image: url("../img/rubbish-bin.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 27px;
+  width: 27px;
+  display: inline-block;
+  margin: 0 10px 0 10px;
+}
+
+.edit {
+  background-image: url("../img/edit.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 27px;
+  width: 27px;
+  display: inline-block;
+  margin: 0 10px 0 10px;
+}
+
+.publish {
+  background-image: url("../img/checked.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 27px;
+  width: 27px;
+  display: inline-block;
+  margin: 0 10px 0 10px;
+}
+
+
+/* post detail */
+.card .buttons {
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+}
+
+.header {
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+  background-color: white;
+  margin-left: 37px;
+}
+
+.leftcolumn {
+  float: left;
+  width: 73%;
+  margin-left: 37px;
+}
+
+.rightcolumn {
+  float: right;
+  width: 20%;
+  padding-left: 20px;
+}
+
+.rightcolumn1 {
+  float: left;
+  width: 23%;
+  display: none;
+}
+
+.fakeimg {
+  background-color: #aaa;
+  padding: 10px;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.footer {
+  padding: 20px;
+  text-align: center;
+  background-color: #ddd;
+  margin-top: 20px;
+  margin-left: 37px;
+}
+
+/* side navigation */
+
+.openbtn {
+  height: 100%;
+  position: fixed;
+  background-color: #D3D3D3;
+  width: 2%;
+  float: left;
+  background-image: url("../img/next.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+
+.side-nav {
+  height: 100%;
+  position: fixed;
+  margin-left: -279px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding: 60px ;
+  padding: 60px 50px 50px 50px;
+  transition: 0.5s;
+}
+
+.side-nav a {
+  padding: 10px 57px 10px 0;
   text-decoration: none;
+  font-size: 150%;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
 }
 
-.content {
-  margin-left: 40px;
+.side-nav a:hover {
+  color: #f1f1f1
 }
 
-h1, h2, h3, h4 {
-  font-family: "Lobster", cursive;
+
+.side-nav .close-btn {
+  height: 88%;
+  width: 25px;
+  position: absolute;
+  top: 0px;
+  right: 6px;
+  background-color: #D3D3D3;
+  background-image: url("../img/back.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
 }
 
-.date, .author {
-  color: #828282;
+.main {
+  transition: margin-left .5s;
+  padding: 20px;
 }
 
-.save {
-  float: right;
+@media screen and (max-height: 450px) {
+  .side-nav {padding-top: 15px;}
+  .side-nav a {font-size: 18px;}
 }
 
-.post-form textarea, .post-form input {
-  width: 100%;
+/* display post */
+@media screen and (max-width: 1072px) {
+  .leftcolumn {
+    width: 100%;
+    padding: 0;
+  }
+
+.rightcolumn {
+    display: none;
+  }
+
+  .rightcolumn1 {
+    width: 100%;
+    padding: 0;
+    display: block;
+  }
 }
 
-.top-menu, .top-menu:hover, .top-menu:visited {
-  color: #ffffff;
-  float: right;
-  font-size: 35px;
-  margin-right: 20px;
-}
 
-.post {
-  margin-bottom: 70px;
-}
 
-.post h1 a, .post h1 a:visited {
-  color: #000000;
-}
 
-.comment {
-    margin: 20px 0px 20px 20px;
-}
+
+
+
+
+
+
